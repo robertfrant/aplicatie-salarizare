@@ -1,0 +1,12 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+[Bb]in/
+[Oo]bj/
+packages/
+
+# IIS / generated
+Aplicatie/aspnet_client
+Aplicatie/PDF/
+Aplicatie/fisier1.pdf

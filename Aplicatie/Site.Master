@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Aplicatie.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %>- My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1"
+    runat="server"
+    EnablePartialRendering="true" />
+
+    <div style="background-color: lightblue;"><br />
+        <p style="margin-left:50px;">       PROIECT APLICATIE SALARIZARE -       FRANT ROBERT-CRISTIAN
+        </p>
+
+<asp:UpdatePanel ID="updReclame" runat="server">
+    <ContentTemplate>
+        <div style="float:right; margin-right:20px;">
+            <asp:Image ID="imgReclama1" runat="server"
+                Width="300px" Height="120px"
+                Style="margin-right:20px;" />
+
+            <asp:Image ID="imgReclama2" runat="server"
+                Width="300px" Height="120px" />
+        </div>
+
+        <asp:Timer ID="Reclame" runat="server"
+            Interval="1000"
+            OnTick="Reclame_Tick" />
+
+        <asp:Label ID="Label1" runat="server" Style="margin-left:250px; font-size:18px; font-weight:bold;" />
+
+    </ContentTemplate>
+</asp:UpdatePanel>
+
+        <br />
+
+        <br /><br /><br />
+
+    </div>
+
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+
+        <asp:Menu ID="Menu1" runat="server"
+            Orientation="Horizontal"
+            Font-Size="16px"
+            StaticMenuStyle-BackColor="Transparent"
+            StaticMenuItemStyle-ForeColor="White"
+            StaticMenuItemStyle-Padding="10px 15px"
+            StaticMenuItemStyle-Font-Bold="true"
+            StaticHoverStyle-BackColor="#495057"
+            StaticHoverStyle-ForeColor="White"
+            DynamicMenuStyle-BackColor="#343a40"
+            DynamicMenuItemStyle-ForeColor="White"
+            DynamicMenuItemStyle-Padding="8px 14px"
+            DynamicHoverStyle-BackColor="#6c757d">
+
+<DynamicHoverStyle BackColor="#6C757D"></DynamicHoverStyle>
+
+<DynamicMenuItemStyle ForeColor="White"></DynamicMenuItemStyle>
+
+<DynamicMenuStyle BackColor="#343A40"></DynamicMenuStyle>
+
+            <Items>
+                <asp:MenuItem Text="HOME" NavigateUrl="~/HOME.aspx" />
+
+                <asp:MenuItem Text="INTRODUCERE DATE">
+                    <asp:MenuItem Text="Actualizare date" NavigateUrl="~/ActualizareDate.aspx" />
+                    <asp:MenuItem Text="Adaugare angajati" NavigateUrl="~/AdaugareAngajati.aspx" />
+                    <asp:MenuItem Text="Stergere angajati" NavigateUrl="~/StergereAngajati.aspx" />
+                    <asp:MenuItem Text="Calcul salarii" />
+                </asp:MenuItem>
+
+                <asp:MenuItem Text="TIPARIRE">
+                    <asp:MenuItem Text="Stat plata" NavigateUrl="~/StatPlata.aspx" />
+                    <asp:MenuItem Text="Fluturasi" NavigateUrl="~/Fluturasi.aspx" />
+                </asp:MenuItem>
+
+                <asp:MenuItem Text="MODIF_PROCENTE" NavigateUrl="~/ModifProcente.aspx" />
+            </Items>
+
+<StaticHoverStyle BackColor="#495057" ForeColor="White"></StaticHoverStyle>
+
+<StaticMenuItemStyle Font-Bold="True" ForeColor="White"></StaticMenuItemStyle>
+
+<StaticMenuStyle BackColor="Transparent"></StaticMenuStyle>
+
+        </asp:Menu>
+
+    </div>
+</nav>
+
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+                    </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
